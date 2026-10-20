@@ -1,0 +1,19 @@
+[project]
+name = "versus"
+version = "0.1.0"
+description = "Run your own tasks on a local open model and on Claude, and see which tasks the cheap one can take."
+requires-python = ">=3.11"
+license = { text = "MIT" }
+readme = "README.md"
+keywords = ["llm", "open-weights", "evaluation", "ollama", "model-routing"]
+dependencies = []
+
+[project.scripts]
+versus = "versus.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
