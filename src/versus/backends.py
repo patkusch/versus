@@ -6,7 +6,12 @@ import os
 import subprocess
 import tempfile
 import time
+import urllib.error
 import urllib.request
+
+
+class BackendUnavailable(Exception):
+    """The model cannot be reached at all, so every task would be a pointless miss."""
 
 
 class Backend:
@@ -34,8 +39,15 @@ class Ollama(Backend):
         }).encode()
         req = urllib.request.Request(self.host + "/api/chat", body, {"Content-Type": "application/json"})
         start = time.time()
-        with urllib.request.urlopen(req, timeout=600) as r:
-            data = json.load(r)
+        try:
+            with urllib.request.urlopen(req, timeout=600) as r:
+                data = json.load(r)
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                raise BackendUnavailable(f"Ollama does not have {self.model}. Fetch it with: ollama pull {self.model}") from e
+            raise
+        except urllib.error.URLError as e:
+            raise BackendUnavailable(f"Ollama is not running at {self.host}. Start it with: ollama serve") from e
         self.tokens = (data.get("prompt_eval_count", 0), data.get("eval_count", 0))
         return data["message"]["content"], time.time() - start
 

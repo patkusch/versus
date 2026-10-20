@@ -13,3 +13,4 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: make test
       - run: make demo
+      - run: PYTHONPATH=src python3 -m versus check tasks/example.jsonl

@@ -84,6 +84,25 @@ class Runner(unittest.TestCase):
         with self.assertRaises(ValueError):
             runner.add_answers(rc, "other", {x["id"]: "y" for x in t})
 
+    def test_unreachable_model_stops_the_run_instead_of_scoring_misses(self):
+        class Down(backends.Backend):
+            name = "ollama:x"
+
+            def ask(self, prompt):
+                raise backends.BackendUnavailable("Ollama is not running")
+
+        with self.assertRaises(backends.BackendUnavailable):
+            runner.run(tasks(), [Down()])
+
+    def test_problems_finds_duplicates_and_bad_checks(self):
+        t = tasks()
+        t.append(dict(t[0]))
+        t.append({"id": "z", "tag": "a", "prompt": "p", "check": {"type": "vibes"}})
+        t.append({"id": "w", "tag": "a", "prompt": "p", "check": {"type": "equals"}})
+        found = runner.problems(t)
+        self.assertEqual(len(found), 3)
+        self.assertEqual(runner.problems(tasks()), [])
+
     def test_bad_model_spec(self):
         with self.assertRaises(ValueError):
             backends.make("gpt:4")
@@ -167,6 +186,12 @@ class Report(unittest.TestCase):
         self.assertEqual((row["tokens_in"], row["tokens_out"], row["tokens_estimated"]), (11, 3, False))
         row = runner.run(tasks()[:1], [backends.Pretend("m", {})])["results"]["m"][0]
         self.assertTrue(row["tokens_estimated"])
+
+    def test_tag_filter_and_unknown_tag(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "t.jsonl"
+            p.write_text("\n".join(json.dumps(t) for t in tasks()))
+            self.assertEqual(main(["run", str(p), "--models", "ollama:none", "--out", str(Path(d) / "o.json"), "--tag", "nope"]), 2)
 
     def test_cli_demo_and_report_roundtrip(self):
         self.assertEqual(main(["demo"]), 0)

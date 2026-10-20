@@ -28,6 +28,7 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("tasks")
     r.add_argument("--models", required=True, help="comma list, e.g. ollama:gemma3:4b,claude:sonnet (last is the reference)")
     r.add_argument("--out", required=True)
+    r.add_argument("--tag", action="append", help="only run tasks of this kind (repeatable)")
     r.add_argument("--price", action="append", help="model=input,output dollars per million tokens, e.g. claude:sonnet=2,10")
     g = sub.add_parser("report", help="turn saved answers into a plain-English report")
     g.add_argument("receipt")
@@ -39,15 +40,34 @@ def main(argv: list[str] | None = None) -> int:
     a.add_argument("--name", required=True)
     a.add_argument("--answers", required=True)
     a.add_argument("--price", action="append", help="model=input,output dollars per million tokens")
+    c = sub.add_parser("check", help="look for mistakes in a task file before spending time on a run")
+    c.add_argument("tasks")
     sub.add_parser("demo", help="no model needed: two pretend models")
     args = p.parse_args(argv)
 
     if args.cmd == "demo":
         return _demo()
+    if args.cmd == "check":
+        tasks = runner.load_tasks(args.tasks)
+        bad = runner.problems(tasks)
+        for line in bad:
+            print(line)
+        kinds = sorted({t["tag"] for t in tasks})
+        print(f"{len(tasks)} tasks, {len(kinds)} kinds ({', '.join(kinds)}), {len(bad)} problems")
+        return 1 if bad else 0
     if args.cmd == "run":
         tasks = runner.load_tasks(args.tasks)
+        if args.tag:
+            tasks = [t for t in tasks if t["tag"] in args.tag]
+            if not tasks:
+                print(f"versus: no tasks with tag {', '.join(args.tag)}", file=sys.stderr)
+                return 2
         bs = [backends.make(s) for s in args.models.split(",")]
-        receipt = runner.run(tasks, bs, progress=lambda m, i, ok: print(f"{m:24} {i:18} {'ok' if ok else 'MISS'}", file=sys.stderr))
+        try:
+            receipt = runner.run(tasks, bs, progress=lambda m, i, ok: print(f"{m:24} {i:18} {'ok' if ok else 'MISS'}", file=sys.stderr))
+        except backends.BackendUnavailable as e:
+            print(f"versus: {e}", file=sys.stderr)
+            return 2
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
         Path(args.out).write_text(json.dumps(receipt, indent=1))
         print(report.render(receipt, prices=report.parse_prices(args.price)))

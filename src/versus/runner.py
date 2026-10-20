@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from .backends import Backend
+from .backends import Backend, BackendUnavailable
 from .checks import passes
 
 
@@ -34,6 +34,8 @@ def run(tasks: list[dict], backends: list[Backend], progress=None) -> dict:
             try:
                 text, secs = b.ask(t["prompt"])
                 error = None
+            except BackendUnavailable:
+                raise
             except Exception as e:  # a failed call counts as a miss, with the reason kept
                 text, secs, error = "", 0.0, str(e)
             reported = b.tokens is not None
@@ -70,3 +72,19 @@ def add_answers(receipt: dict, name: str, answers: dict[str, str]) -> dict:
     receipt["models"].append(name)
     receipt["results"][name] = rows
     return receipt
+
+
+def problems(tasks: list[dict]) -> list[str]:
+    """Mistakes in a task file that would otherwise show up as odd scores later."""
+    found, seen = [], set()
+    for t in tasks:
+        if t["id"] in seen:
+            found.append(f"{t['id']}: id used twice")
+        seen.add(t["id"])
+        try:
+            passes(t["check"], "")
+        except ValueError as e:
+            found.append(f"{t['id']}: {e}")
+        except (KeyError, TypeError) as e:
+            found.append(f"{t['id']}: check is missing {e}")
+    return found
