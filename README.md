@@ -52,7 +52,7 @@ Rules available: `equals`, `any_of`, `contains`, `not_contains`, `regex`, `numbe
 
 ```bash
 make demo        # no model needed: two pretend models
-make test        # 27 tests
+make test        # 25 tests
 
 # real run: needs Ollama running with the models pulled
 PYTHONPATH=src python3 -m versus run tasks/example.jsonl \

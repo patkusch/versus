@@ -2,6 +2,8 @@
 
 Each model answered the same 102 tasks. Every answer was checked by a fixed rule, never by another model. **claude:answered-blind** is the one we compare against.
 
+**In short:** **gemma3:latest** can take classify; keep arithmetic, extract, format, reasoning, rules on answered-blind. **gemma3:12b** can take classify, format, rules; keep arithmetic, extract, reasoning on answered-blind.
+
 ## Overall
 
 | Model | Got right | Share | Plausible range | Typical time per answer | Cost for 1,000 tasks |
