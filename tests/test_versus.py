@@ -158,6 +158,7 @@ class Report(unittest.TestCase):
 
     def test_render_names_what_to_keep(self):
         text = report.render(self.make({"b-0"}))
+        self.assertIn("**In short:** **small** can take a; keep b on big.", text)
         self.assertIn("loses nothing on:** a", text)
         self.assertIn("Stay on claude:big for:** b", text)
 

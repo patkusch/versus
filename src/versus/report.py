@@ -79,6 +79,14 @@ def render(receipt: dict, reference: str | None = None, prices: dict | None = No
     out.append(f"Each model answered the same {len(receipt['tasks'])} tasks. "
                f"Every answer was checked by a fixed rule, never by another model. "
                f"**{ref}** is the one we compare against.")
+    answer = []
+    for m, per_tag in a["versus"].items():
+        free = [t for t, d in per_tag.items() if d["can_take"]]
+        kept = [t for t, d in per_tag.items() if not d["can_take"]]
+        name = m.split(":", 1)[1]
+        answer.append(f"**{name}** can take {', '.join(free) if free else 'none of the kinds'}"
+                      + (f"; keep {', '.join(kept)} on {ref.split(':', 1)[1]}." if kept else "."))
+    out += ["", "**In short:** " + " ".join(answer)]
     out += ["", "## Overall", "",
             "| Model | Got right | Share | Plausible range | Typical time per answer | Cost for 1,000 tasks |",
             "|---|---|---|---|---|---|"]
