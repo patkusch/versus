@@ -34,6 +34,7 @@ def main(argv: list[str] | None = None) -> int:
     g.add_argument("receipt")
     g.add_argument("--reference")
     g.add_argument("--price", action="append", help="model=input,output dollars per million tokens, e.g. claude:sonnet=2,10")
+    g.add_argument("--out", help="also save the report to this file")
     g.add_argument("--rescore", action="store_true", help="re-apply the task checks to the saved answers first")
     a = sub.add_parser("add", help="add a model whose answers you collected yourself (a JSON file of id -> answer)")
     a.add_argument("receipt")
@@ -80,5 +81,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.rescore:
         receipt = runner.rescore(receipt)
-    print(report.render(receipt, args.reference, report.parse_prices(args.price)))
+    text = report.render(receipt, args.reference, report.parse_prices(args.price))
+    if args.out:
+        Path(args.out).write_text(text + "\n")
+    print(text)
     return 0

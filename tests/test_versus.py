@@ -198,7 +198,8 @@ class Report(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             p = Path(d) / "r.json"
             p.write_text(json.dumps(self.make({"b-0"})))
-            self.assertEqual(main(["report", str(p), "--rescore"]), 0)
+            self.assertEqual(main(["report", str(p), "--rescore", "--out", str(Path(d) / "r.md")]), 0)
+            self.assertIn("# Versus report", (Path(d) / "r.md").read_text())
 
 
 if __name__ == "__main__":
