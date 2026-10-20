@@ -8,27 +8,28 @@
 
 The "open or closed models" argument usually stays an argument. This turns it into a table you can read.
 
-I ran 48 small everyday tasks (pull a number out of text, do a word problem, follow a formatting rule, spot sarcasm) on two free models on a laptop and on Claude. A fixed rule marked every answer right or wrong. No model marked another model.
+I ran 102 small everyday tasks (pull a number out of text, do a word problem, follow a formatting rule, spot sarcasm) on two free models on a laptop and on Claude. A fixed rule marked every answer right or wrong. No model marked another model.
 
-| Model | Got right | Share |
-|---|---|---|
-| Gemma 3, 4B (small, free) | 35 of 48 | 73% |
-| Gemma 3, 12B (bigger, free) | 45 of 48 | 94% |
-| Claude | 48 of 48 | 100% |
+| Model | Got right | Share | Cost for 1,000 tasks |
+|---|---|---|---|
+| Gemma 3, 4B (small, free) | 84 of 102 | 82% | $0.00 |
+| Gemma 3, 12B (bigger, free) | 97 of 102 | 95% | $0.00 |
+| Claude (Sonnet 5.5 price) | 102 of 102 | 100% | $0.09 |
 
 The useful part is where the misses fall:
 
-- **The small model handled all of the labelling and formatting tasks** (7 of 7 each) and missed 7 of 9 word problems. For those jobs it is free and fast.
-- **The bigger free model matched Claude on everything except arithmetic**, where it missed 3 of 9. It said 66 for "15% of 240 plus 35% of 80". The answer is 64.
-- **The small model wrote "A vast, salty ocean rolls, a constant, liquid sway"** when asked for a sentence with no letter "e". It cannot follow a rule it cannot check.
+- **The small model got every sentiment, sorting and spotting task right** (16 of 16) and missed half of the word problems (9 of 18). For labelling jobs it is free and fast.
+- **The bigger free model matched Claude on labelling, formatting and rule-following.** It missed 3 of 18 word problems, one of 17 text-extraction tasks (it answered 356 for a recipe that says 180°C) and one of 18 reasoning tasks (it said Friday for the day two days before Monday).
+- **The small model wrote "The silver orb hangs in the night sky, silent."** when asked for a sentence with no letter "a". It cannot follow a rule it cannot check.
+- **On short tasks like these, cost is not the reason to go free.** Claude answers 1,000 of them for about nine cents. The reasons to run locally are privacy, working offline, and very large volumes. If you came for savings, this tells you the saving is pennies until your tasks get long.
 
-So the answer is not "open or closed". It is: send labelling and formatting to the free model, and keep the maths on Claude.
+So the answer is not "open or closed". It is: send labelling, formatting and rules to the free model, and keep the maths and careful reading on Claude.
 
 ## How big a claim is this?
 
-Small. 48 tasks, 6 to 9 per kind. The table above shows a range next to every score for this reason: 94% on 48 tasks could really be anywhere from 83% to 98%. "Can take this" in the report means "got right everything Claude got right", which is a lead worth testing on more tasks of your own, not a guarantee.
+Modest. 102 tasks, 16 to 18 per kind. The report shows a range next to every score for this reason: 95% on 102 tasks could really be anywhere from 89% to 98%. "Can take this" in the report means "got right everything Claude got right", which is a lead worth testing on more tasks of your own, not a guarantee.
 
-The Claude answers came from a Claude agent given only the questions, with no tools and no sight of the answer rules. Its time is not measured. Answers from the two Gemma models were collected at temperature 0 through a local Ollama.
+The Claude answers came from a Claude agent given only the questions, with no tools and no sight of the answer rules. Its time is not measured, and its cost is a rough estimate (about 4 characters a token) priced at Sonnet 5.5 rates ($2 in, $10 out per million tokens), which is the model I believe that agent ran on but could not confirm. Token counts for the Gemma models are exact. Answers from the two Gemma models were collected at temperature 0 through a local Ollama.
 
 ## Use it on your own tasks
 
@@ -38,15 +39,16 @@ Write your tasks as one line each, with a rule that decides right or wrong:
 {"id": "extract-1", "tag": "extract", "prompt": "Invoice total? Only the amount.", "check": {"type": "contains", "values": ["1,482.50"]}}
 ```
 
-Rules available: `equals`, `any_of`, `contains`, `not_contains`, `regex`, `number`, `json`, `max_words`, `word_count`, `all_caps`, `line_count`, `bullets`, and `all` (several rules at once). The tasks I used are in [`tasks/example.jsonl`](tasks/example.jsonl).
+Rules available: `equals`, `any_of`, `contains`, `not_contains`, `regex`, `number`, `json`, `max_words`, `word_count`, `all_caps`, `all_lower`, `line_count`, `bullets`, and `all` (several rules at once). The tasks I used are in [`tasks/example.jsonl`](tasks/example.jsonl).
 
 ```bash
 make demo        # no model needed: two pretend models
-make test        # 18 tests
+make test        # 22 tests
 
 # real run: needs Ollama running with the models pulled
 PYTHONPATH=src python3 -m versus run tasks/example.jsonl \
-  --models ollama:gemma3:4b,ollama:gemma3:12b,claude:sonnet --out receipts/mine.json
+  --models ollama:gemma3:4b,ollama:gemma3:12b,claude:sonnet --out receipts/mine.json \
+  --price claude:sonnet=2,10
 
 # bring answers you collected yourself (a JSON file of task id -> answer)
 PYTHONPATH=src python3 -m versus add receipts/mine.json --name claude:other --answers answers.json
@@ -61,8 +63,8 @@ The full output of the run above is in [`receipts/REPORT.md`](receipts/REPORT.md
 
 ## Not done yet
 
-- More tasks per kind. Nine is a start, not a verdict.
-- Cost per task, so "the free model can take it" comes with a saving attached.
+- Longer tasks (whole documents), where the cost gap should start to matter.
 - Repeat runs at a warmer temperature, to see how steady each model is.
+- A real `claude:` column run through the command, once it can log in from the machine running the test.
 
 MIT licence.

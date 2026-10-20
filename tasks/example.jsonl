@@ -46,3 +46,57 @@
 {"id": "reasoning-8", "tag": "reasoning", "prompt": "A farmer has 17 sheep. All but 9 run away. How many are left? Reply with only the number.", "check": {"type": "number", "value": 9}}
 {"id": "reasoning-9", "tag": "reasoning", "prompt": "Five people each shake hands once with every other person. How many handshakes happen in total? Reply with only the number.", "check": {"type": "number", "value": 10}}
 {"id": "classify-7", "tag": "classify", "prompt": "Is this review positive or negative? 'Oh great, another update that deletes my saved files. Just what I needed.' Reply with one word.", "check": {"type": "equals", "value": "negative"}}
+{"id": "extract-9", "tag": "extract", "prompt": "Receipt: Coffee £3.20, Muffin £2.80, Tip £1.00. What was the price of the muffin? Reply with only the amount.", "check": {"type": "contains", "values": ["2.80"]}}
+{"id": "extract-10", "tag": "extract", "prompt": "The package, tracking number ZX-4471-KP, was delivered on 9 October to apartment 12B. What is the tracking number? Reply with only the number.", "check": {"type": "equals", "value": "ZX-4471-KP"}}
+{"id": "extract-11", "tag": "extract", "prompt": "A contract says: 'Either party may terminate with 60 days written notice.' How many days of notice are required? Reply with only the number.", "check": {"type": "number", "value": 60}}
+{"id": "extract-12", "tag": "extract", "prompt": "Dr. Alvarez saw the patient on 3 May and Dr. Chen saw them on 7 May. Who saw the patient last? Reply with only the surname.", "check": {"type": "equals", "value": "Chen"}}
+{"id": "extract-13", "tag": "extract", "prompt": "A server log says: 'ERROR 503 at 14:02:11 from host db-eu-2'. Which host failed? Reply with only the host name.", "check": {"type": "equals", "value": "db-eu-2"}}
+{"id": "extract-14", "tag": "extract", "prompt": "A recipe says: bake at 180°C for 25 minutes. What is the temperature in degrees? Reply with only the number.", "check": {"type": "number", "value": 180}}
+{"id": "extract-15", "tag": "extract", "prompt": "From 'Meet at Pier 39 on Saturday at 6pm', what is the day? Reply with one word.", "check": {"type": "equals", "value": "Saturday"}}
+{"id": "extract-16", "tag": "extract", "prompt": "The warranty lasts 24 months from purchase, and the return window is 14 days. How long is the return window in days? Reply with only the number.", "check": {"type": "number", "value": 14}}
+{"id": "extract-17", "tag": "extract", "prompt": "Which currency code is used here: 'Total due: 1,250.00 EUR by 30 June.' Reply with only the code.", "check": {"type": "equals", "value": "EUR"}}
+{"id": "arithmetic-10", "tag": "arithmetic", "prompt": "What is 144 divided by 12, plus 7? Reply with only the number.", "check": {"type": "number", "value": 19}}
+{"id": "arithmetic-11", "tag": "arithmetic", "prompt": "A car travels at 60 km/h for 2.5 hours. How many kilometres does it cover? Reply with only the number.", "check": {"type": "number", "value": 150}}
+{"id": "arithmetic-12", "tag": "arithmetic", "prompt": "What is 25% of 880? Reply with only the number.", "check": {"type": "number", "value": 220}}
+{"id": "arithmetic-13", "tag": "arithmetic", "prompt": "Sam earns £15 per hour and works 7.5 hours. How many pounds does Sam earn? Reply with only the number.", "check": {"type": "number", "value": 112.5}}
+{"id": "arithmetic-14", "tag": "arithmetic", "prompt": "What is 999 + 1,001? Reply with only the number.", "check": {"type": "number", "value": 2000}}
+{"id": "arithmetic-15", "tag": "arithmetic", "prompt": "A rectangle is 12 m by 7 m. What is its perimeter in metres? Reply with only the number.", "check": {"type": "number", "value": 38}}
+{"id": "arithmetic-16", "tag": "arithmetic", "prompt": "If 3 pens cost £4.50, how many pounds do 8 pens cost? Reply with only the number.", "check": {"type": "number", "value": 12}}
+{"id": "arithmetic-17", "tag": "arithmetic", "prompt": "What is 2 to the power of 10? Reply with only the number.", "check": {"type": "number", "value": 1024}}
+{"id": "arithmetic-18", "tag": "arithmetic", "prompt": "An 80-litre tank is 35% full. How many litres of water are in it? Reply with only the number.", "check": {"type": "number", "value": 28}}
+{"id": "format-8", "tag": "format", "prompt": "Return a JSON array of the first three prime numbers. Output only the JSON.", "check": {"type": "json", "value": [2, 3, 5]}}
+{"id": "format-9", "tag": "format", "prompt": "From 'a red car and a blue bike', return a JSON object with the key colors set to an array of the two colours in lowercase, in order. Output only the JSON.", "check": {"type": "json", "value": {"colors": ["red", "blue"]}}}
+{"id": "format-10", "tag": "format", "prompt": "Convert 'hello world' to upper case. Reply with only the result.", "check": {"type": "equals", "value": "HELLO WORLD"}}
+{"id": "format-11", "tag": "format", "prompt": "Reverse the word 'stream'. Reply with only the result.", "check": {"type": "equals", "value": "maerts"}}
+{"id": "format-12", "tag": "format", "prompt": "Write the number 1234567 with commas as thousands separators. Reply with only the result.", "check": {"type": "contains", "values": ["1,234,567"]}}
+{"id": "format-13", "tag": "format", "prompt": "From 'Lyon is in France', return a JSON object with the keys city and country. Output only the JSON.", "check": {"type": "json", "value": {"city": "Lyon", "country": "France"}}}
+{"id": "format-14", "tag": "format", "prompt": "Take the first letter of each word in 'portable network graphics' and write them as capital letters with no spaces. Reply with only the result.", "check": {"type": "equals", "value": "PNG"}}
+{"id": "format-15", "tag": "format", "prompt": "Sort these numbers from smallest to largest as a JSON array: 42, 7, 19, 3. Output only the JSON.", "check": {"type": "json", "value": [3, 7, 19, 42]}}
+{"id": "format-16", "tag": "format", "prompt": "Reply with exactly TRUE or FALSE: is 15 an even number?", "check": {"type": "equals", "value": "FALSE"}}
+{"id": "classify-8", "tag": "classify", "prompt": "Is this review positive or negative? 'The staff were friendly and the room was spotless.' Reply with one word.", "check": {"type": "equals", "value": "positive"}}
+{"id": "classify-9", "tag": "classify", "prompt": "Is this review positive or negative? 'It broke after two days and support never replied.' Reply with one word.", "check": {"type": "equals", "value": "negative"}}
+{"id": "classify-10", "tag": "classify", "prompt": "Which team should get this message: billing, shipping or technical? 'I cannot log in even after resetting my password.' Reply with one word.", "check": {"type": "equals", "value": "technical"}}
+{"id": "classify-11", "tag": "classify", "prompt": "Which team should get this message: billing, shipping or technical? 'Please refund the extra fee on my invoice.' Reply with one word.", "check": {"type": "equals", "value": "billing"}}
+{"id": "classify-12", "tag": "classify", "prompt": "Which team should get this message: billing, shipping or technical? 'The courier left my parcel at the wrong address.' Reply with one word.", "check": {"type": "equals", "value": "shipping"}}
+{"id": "classify-13", "tag": "classify", "prompt": "Is this message spam or not spam? 'Hi Dan, are we still on for lunch at 1pm tomorrow?' Reply with only: spam or not spam.", "check": {"type": "equals", "value": "not spam"}}
+{"id": "classify-14", "tag": "classify", "prompt": "What language is this written in? 'Où est la gare, s'il vous plaît?' Reply with one word, in English.", "check": {"type": "equals", "value": "French"}}
+{"id": "classify-15", "tag": "classify", "prompt": "Is this message urgent or not urgent? 'The production database is down and customers cannot pay.' Reply with only: urgent or not urgent.", "check": {"type": "equals", "value": "urgent"}}
+{"id": "classify-16", "tag": "classify", "prompt": "Is this sentence a question or a statement? 'The train leaves at noon.' Reply with one word.", "check": {"type": "equals", "value": "statement"}}
+{"id": "rules-9", "tag": "rules", "prompt": "Write exactly two bullet points about cats. Start each line with '- '. No other text.", "check": {"type": "bullets", "value": 2}}
+{"id": "rules-10", "tag": "rules", "prompt": "Write one sentence about bread using at most 6 words.", "check": {"type": "max_words", "value": 6}}
+{"id": "rules-11", "tag": "rules", "prompt": "Say good morning. Reply in all lowercase letters.", "check": {"type": "all_lower"}}
+{"id": "rules-12", "tag": "rules", "prompt": "List four colours, one per line, with no numbering and no other text.", "check": {"type": "line_count", "value": 4}}
+{"id": "rules-13", "tag": "rules", "prompt": "Write one sentence about the moon that does not contain the letter 'a' anywhere.", "check": {"type": "not_contains", "values": ["a"]}}
+{"id": "rules-14", "tag": "rules", "prompt": "Answer with a single word and nothing else: what is the opposite of 'hot'?", "check": {"type": "equals", "value": "cold"}}
+{"id": "rules-15", "tag": "rules", "prompt": "Write exactly 5 words about winter. Reply with only those words.", "check": {"type": "word_count", "value": 5}}
+{"id": "rules-16", "tag": "rules", "prompt": "Start your reply with the word 'Certainly' and then say that today is Tuesday.", "check": {"type": "regex", "pattern": "^Certainly"}}
+{"id": "rules-17", "tag": "rules", "prompt": "Write one sentence that contains the word 'sunrise' and ends with an exclamation mark.", "check": {"type": "all", "checks": [{"type": "regex", "pattern": "!\\s*$"}, {"type": "contains", "values": ["sunrise"]}]}}
+{"id": "reasoning-10", "tag": "reasoning", "prompt": "Mia is older than Leo. Leo is older than Zoe. Who is the oldest? Reply with one word.", "check": {"type": "equals", "value": "Mia"}}
+{"id": "reasoning-11", "tag": "reasoning", "prompt": "All cats are animals and Tom is a cat. Is Tom an animal? Reply with only yes or no.", "check": {"type": "equals", "value": "yes"}}
+{"id": "reasoning-12", "tag": "reasoning", "prompt": "A clock shows exactly 3:00. What is the angle between the hour hand and the minute hand, in degrees? Reply with only the number.", "check": {"type": "number", "value": 90}}
+{"id": "reasoning-13", "tag": "reasoning", "prompt": "What number comes next: 2, 4, 8, 16, ? Reply with only the number.", "check": {"type": "number", "value": 32}}
+{"id": "reasoning-14", "tag": "reasoning", "prompt": "I am facing north. I turn right, then turn right again. Which direction am I facing now? Reply with one word.", "check": {"type": "equals", "value": "South"}}
+{"id": "reasoning-15", "tag": "reasoning", "prompt": "There are 12 eggs. I use 5 for a cake and 3 for breakfast. How many eggs are left? Reply with only the number.", "check": {"type": "number", "value": 4}}
+{"id": "reasoning-16", "tag": "reasoning", "prompt": "If 5 machines take 5 minutes to make 5 widgets, how many minutes would 100 machines take to make 100 widgets? Reply with only the number.", "check": {"type": "number", "value": 5}}
+{"id": "reasoning-17", "tag": "reasoning", "prompt": "Which number does not belong with the others: 2, 4, 6, 9, 10? Reply with only the number.", "check": {"type": "number", "value": 9}}
+{"id": "reasoning-18", "tag": "reasoning", "prompt": "Which day comes two days before Monday? Reply with one word.", "check": {"type": "equals", "value": "Saturday"}}

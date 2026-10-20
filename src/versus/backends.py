@@ -11,6 +11,7 @@ import urllib.request
 
 class Backend:
     name = ""
+    tokens: tuple[int, int] | None = None  # (prompt, answer) tokens from the last ask, when the model reports them
 
     def ask(self, prompt: str) -> tuple[str, float]:
         raise NotImplementedError
@@ -35,6 +36,7 @@ class Ollama(Backend):
         start = time.time()
         with urllib.request.urlopen(req, timeout=600) as r:
             data = json.load(r)
+        self.tokens = (data.get("prompt_eval_count", 0), data.get("eval_count", 0))
         return data["message"]["content"], time.time() - start
 
 

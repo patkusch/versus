@@ -38,6 +38,10 @@ class Checks(unittest.TestCase):
         self.assertTrue(checks.passes(both, "FRANCE\nSPAIN"))
         self.assertFalse(checks.passes(both, "FRANCE\nSpain"))
 
+    def test_all_lower(self):
+        self.assertTrue(checks.passes({"type": "all_lower"}, "good morning"))
+        self.assertFalse(checks.passes({"type": "all_lower"}, "Good morning"))
+
     def test_unknown_check_is_an_error(self):
         with self.assertRaises(ValueError):
             checks.passes({"type": "vibes"}, "x")
@@ -93,8 +97,8 @@ class Runner(unittest.TestCase):
 
     def test_shipped_tasks_load_and_have_known_checks(self):
         ts = runner.load_tasks(Path(__file__).parent.parent / "tasks" / "example.jsonl")
-        self.assertEqual(len(ts), 48)
-        self.assertEqual(len({t["id"] for t in ts}), 48)
+        self.assertEqual(len(ts), 102)
+        self.assertEqual(len({t["id"] for t in ts}), 102)
         for t in ts:
             checks.passes(t["check"], "x")  # raises on an unknown type
 
@@ -137,6 +141,32 @@ class Report(unittest.TestCase):
         text = report.render(self.make({"b-0"}))
         self.assertIn("loses nothing on:** a", text)
         self.assertIn("Stay on claude:big for:** b", text)
+
+    def test_cost_uses_reported_tokens_and_price(self):
+        rows = [{"tokens_in": 1000, "tokens_out": 500}, {"tokens_in": 1000, "tokens_out": 500}]
+        # per task: 1000*2/1e6 + 500*10/1e6 = $0.007; for 1,000 tasks = $7
+        self.assertAlmostEqual(report.cost_per_thousand(rows, (2.0, 10.0)), 7.0)
+        self.assertEqual(report.parse_prices(["claude:sonnet=2,10"]), {"claude:sonnet": (2.0, 10.0)})
+
+    def test_local_models_are_free_and_unpriced_ones_say_so(self):
+        t = tasks()
+        rc = runner.run(t, [backends.Pretend("ollama:s", {}), backends.Pretend("claude:b", {})])
+        text = report.render(rc)
+        self.assertIn("| $0.00 |", text)
+        self.assertIn("no price given", text)
+
+    def test_tokens_are_reported_or_estimated(self):
+        class Counting(backends.Backend):
+            name = "ollama:c"
+
+            def ask(self, prompt):
+                self.tokens = (11, 3)
+                return "y", 0.1
+
+        row = runner.run(tasks()[:1], [Counting()])["results"]["ollama:c"][0]
+        self.assertEqual((row["tokens_in"], row["tokens_out"], row["tokens_estimated"]), (11, 3, False))
+        row = runner.run(tasks()[:1], [backends.Pretend("m", {})])["results"]["m"][0]
+        self.assertTrue(row["tokens_estimated"])
 
     def test_cli_demo_and_report_roundtrip(self):
         self.assertEqual(main(["demo"]), 0)

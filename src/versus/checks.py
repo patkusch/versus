@@ -46,6 +46,8 @@ def passes(check: dict, text: str) -> bool:
         return len(t.split()) == check["value"]
     if kind == "all":
         return all(passes(c, text) for c in check["checks"])
+    if kind == "all_lower":
+        return any(c.isalpha() for c in t) and t == t.lower()
     if kind == "all_caps":
         return any(c.isalpha() for c in t) and t == t.upper()
     if kind == "line_count":

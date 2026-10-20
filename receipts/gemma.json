@@ -473,6 +473,525 @@
     "type": "equals",
     "value": "negative"
    }
+  },
+  {
+   "id": "extract-9",
+   "tag": "extract",
+   "prompt": "Receipt: Coffee \u00a33.20, Muffin \u00a32.80, Tip \u00a31.00. What was the price of the muffin? Reply with only the amount.",
+   "check": {
+    "type": "contains",
+    "values": [
+     "2.80"
+    ]
+   }
+  },
+  {
+   "id": "extract-10",
+   "tag": "extract",
+   "prompt": "The package, tracking number ZX-4471-KP, was delivered on 9 October to apartment 12B. What is the tracking number? Reply with only the number.",
+   "check": {
+    "type": "equals",
+    "value": "ZX-4471-KP"
+   }
+  },
+  {
+   "id": "extract-11",
+   "tag": "extract",
+   "prompt": "A contract says: 'Either party may terminate with 60 days written notice.' How many days of notice are required? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 60
+   }
+  },
+  {
+   "id": "extract-12",
+   "tag": "extract",
+   "prompt": "Dr. Alvarez saw the patient on 3 May and Dr. Chen saw them on 7 May. Who saw the patient last? Reply with only the surname.",
+   "check": {
+    "type": "equals",
+    "value": "Chen"
+   }
+  },
+  {
+   "id": "extract-13",
+   "tag": "extract",
+   "prompt": "A server log says: 'ERROR 503 at 14:02:11 from host db-eu-2'. Which host failed? Reply with only the host name.",
+   "check": {
+    "type": "equals",
+    "value": "db-eu-2"
+   }
+  },
+  {
+   "id": "extract-14",
+   "tag": "extract",
+   "prompt": "A recipe says: bake at 180\u00b0C for 25 minutes. What is the temperature in degrees? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 180
+   }
+  },
+  {
+   "id": "extract-15",
+   "tag": "extract",
+   "prompt": "From 'Meet at Pier 39 on Saturday at 6pm', what is the day? Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "Saturday"
+   }
+  },
+  {
+   "id": "extract-16",
+   "tag": "extract",
+   "prompt": "The warranty lasts 24 months from purchase, and the return window is 14 days. How long is the return window in days? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 14
+   }
+  },
+  {
+   "id": "extract-17",
+   "tag": "extract",
+   "prompt": "Which currency code is used here: 'Total due: 1,250.00 EUR by 30 June.' Reply with only the code.",
+   "check": {
+    "type": "equals",
+    "value": "EUR"
+   }
+  },
+  {
+   "id": "arithmetic-10",
+   "tag": "arithmetic",
+   "prompt": "What is 144 divided by 12, plus 7? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 19
+   }
+  },
+  {
+   "id": "arithmetic-11",
+   "tag": "arithmetic",
+   "prompt": "A car travels at 60 km/h for 2.5 hours. How many kilometres does it cover? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 150
+   }
+  },
+  {
+   "id": "arithmetic-12",
+   "tag": "arithmetic",
+   "prompt": "What is 25% of 880? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 220
+   }
+  },
+  {
+   "id": "arithmetic-13",
+   "tag": "arithmetic",
+   "prompt": "Sam earns \u00a315 per hour and works 7.5 hours. How many pounds does Sam earn? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 112.5
+   }
+  },
+  {
+   "id": "arithmetic-14",
+   "tag": "arithmetic",
+   "prompt": "What is 999 + 1,001? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 2000
+   }
+  },
+  {
+   "id": "arithmetic-15",
+   "tag": "arithmetic",
+   "prompt": "A rectangle is 12 m by 7 m. What is its perimeter in metres? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 38
+   }
+  },
+  {
+   "id": "arithmetic-16",
+   "tag": "arithmetic",
+   "prompt": "If 3 pens cost \u00a34.50, how many pounds do 8 pens cost? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 12
+   }
+  },
+  {
+   "id": "arithmetic-17",
+   "tag": "arithmetic",
+   "prompt": "What is 2 to the power of 10? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 1024
+   }
+  },
+  {
+   "id": "arithmetic-18",
+   "tag": "arithmetic",
+   "prompt": "An 80-litre tank is 35% full. How many litres of water are in it? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 28
+   }
+  },
+  {
+   "id": "format-8",
+   "tag": "format",
+   "prompt": "Return a JSON array of the first three prime numbers. Output only the JSON.",
+   "check": {
+    "type": "json",
+    "value": [
+     2,
+     3,
+     5
+    ]
+   }
+  },
+  {
+   "id": "format-9",
+   "tag": "format",
+   "prompt": "From 'a red car and a blue bike', return a JSON object with the key colors set to an array of the two colours in lowercase, in order. Output only the JSON.",
+   "check": {
+    "type": "json",
+    "value": {
+     "colors": [
+      "red",
+      "blue"
+     ]
+    }
+   }
+  },
+  {
+   "id": "format-10",
+   "tag": "format",
+   "prompt": "Convert 'hello world' to upper case. Reply with only the result.",
+   "check": {
+    "type": "equals",
+    "value": "HELLO WORLD"
+   }
+  },
+  {
+   "id": "format-11",
+   "tag": "format",
+   "prompt": "Reverse the word 'stream'. Reply with only the result.",
+   "check": {
+    "type": "equals",
+    "value": "maerts"
+   }
+  },
+  {
+   "id": "format-12",
+   "tag": "format",
+   "prompt": "Write the number 1234567 with commas as thousands separators. Reply with only the result.",
+   "check": {
+    "type": "contains",
+    "values": [
+     "1,234,567"
+    ]
+   }
+  },
+  {
+   "id": "format-13",
+   "tag": "format",
+   "prompt": "From 'Lyon is in France', return a JSON object with the keys city and country. Output only the JSON.",
+   "check": {
+    "type": "json",
+    "value": {
+     "city": "Lyon",
+     "country": "France"
+    }
+   }
+  },
+  {
+   "id": "format-14",
+   "tag": "format",
+   "prompt": "Take the first letter of each word in 'portable network graphics' and write them as capital letters with no spaces. Reply with only the result.",
+   "check": {
+    "type": "equals",
+    "value": "PNG"
+   }
+  },
+  {
+   "id": "format-15",
+   "tag": "format",
+   "prompt": "Sort these numbers from smallest to largest as a JSON array: 42, 7, 19, 3. Output only the JSON.",
+   "check": {
+    "type": "json",
+    "value": [
+     3,
+     7,
+     19,
+     42
+    ]
+   }
+  },
+  {
+   "id": "format-16",
+   "tag": "format",
+   "prompt": "Reply with exactly TRUE or FALSE: is 15 an even number?",
+   "check": {
+    "type": "equals",
+    "value": "FALSE"
+   }
+  },
+  {
+   "id": "classify-8",
+   "tag": "classify",
+   "prompt": "Is this review positive or negative? 'The staff were friendly and the room was spotless.' Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "positive"
+   }
+  },
+  {
+   "id": "classify-9",
+   "tag": "classify",
+   "prompt": "Is this review positive or negative? 'It broke after two days and support never replied.' Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "negative"
+   }
+  },
+  {
+   "id": "classify-10",
+   "tag": "classify",
+   "prompt": "Which team should get this message: billing, shipping or technical? 'I cannot log in even after resetting my password.' Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "technical"
+   }
+  },
+  {
+   "id": "classify-11",
+   "tag": "classify",
+   "prompt": "Which team should get this message: billing, shipping or technical? 'Please refund the extra fee on my invoice.' Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "billing"
+   }
+  },
+  {
+   "id": "classify-12",
+   "tag": "classify",
+   "prompt": "Which team should get this message: billing, shipping or technical? 'The courier left my parcel at the wrong address.' Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "shipping"
+   }
+  },
+  {
+   "id": "classify-13",
+   "tag": "classify",
+   "prompt": "Is this message spam or not spam? 'Hi Dan, are we still on for lunch at 1pm tomorrow?' Reply with only: spam or not spam.",
+   "check": {
+    "type": "equals",
+    "value": "not spam"
+   }
+  },
+  {
+   "id": "classify-14",
+   "tag": "classify",
+   "prompt": "What language is this written in? 'O\u00f9 est la gare, s'il vous pla\u00eet?' Reply with one word, in English.",
+   "check": {
+    "type": "equals",
+    "value": "French"
+   }
+  },
+  {
+   "id": "classify-15",
+   "tag": "classify",
+   "prompt": "Is this message urgent or not urgent? 'The production database is down and customers cannot pay.' Reply with only: urgent or not urgent.",
+   "check": {
+    "type": "equals",
+    "value": "urgent"
+   }
+  },
+  {
+   "id": "classify-16",
+   "tag": "classify",
+   "prompt": "Is this sentence a question or a statement? 'The train leaves at noon.' Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "statement"
+   }
+  },
+  {
+   "id": "rules-9",
+   "tag": "rules",
+   "prompt": "Write exactly two bullet points about cats. Start each line with '- '. No other text.",
+   "check": {
+    "type": "bullets",
+    "value": 2
+   }
+  },
+  {
+   "id": "rules-10",
+   "tag": "rules",
+   "prompt": "Write one sentence about bread using at most 6 words.",
+   "check": {
+    "type": "max_words",
+    "value": 6
+   }
+  },
+  {
+   "id": "rules-11",
+   "tag": "rules",
+   "prompt": "Say good morning. Reply in all lowercase letters.",
+   "check": {
+    "type": "all_lower"
+   }
+  },
+  {
+   "id": "rules-12",
+   "tag": "rules",
+   "prompt": "List four colours, one per line, with no numbering and no other text.",
+   "check": {
+    "type": "line_count",
+    "value": 4
+   }
+  },
+  {
+   "id": "rules-13",
+   "tag": "rules",
+   "prompt": "Write one sentence about the moon that does not contain the letter 'a' anywhere.",
+   "check": {
+    "type": "not_contains",
+    "values": [
+     "a"
+    ]
+   }
+  },
+  {
+   "id": "rules-14",
+   "tag": "rules",
+   "prompt": "Answer with a single word and nothing else: what is the opposite of 'hot'?",
+   "check": {
+    "type": "equals",
+    "value": "cold"
+   }
+  },
+  {
+   "id": "rules-15",
+   "tag": "rules",
+   "prompt": "Write exactly 5 words about winter. Reply with only those words.",
+   "check": {
+    "type": "word_count",
+    "value": 5
+   }
+  },
+  {
+   "id": "rules-16",
+   "tag": "rules",
+   "prompt": "Start your reply with the word 'Certainly' and then say that today is Tuesday.",
+   "check": {
+    "type": "regex",
+    "pattern": "^Certainly"
+   }
+  },
+  {
+   "id": "rules-17",
+   "tag": "rules",
+   "prompt": "Write one sentence that contains the word 'sunrise' and ends with an exclamation mark.",
+   "check": {
+    "type": "all",
+    "checks": [
+     {
+      "type": "regex",
+      "pattern": "!\\s*$"
+     },
+     {
+      "type": "contains",
+      "values": [
+       "sunrise"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "reasoning-10",
+   "tag": "reasoning",
+   "prompt": "Mia is older than Leo. Leo is older than Zoe. Who is the oldest? Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "Mia"
+   }
+  },
+  {
+   "id": "reasoning-11",
+   "tag": "reasoning",
+   "prompt": "All cats are animals and Tom is a cat. Is Tom an animal? Reply with only yes or no.",
+   "check": {
+    "type": "equals",
+    "value": "yes"
+   }
+  },
+  {
+   "id": "reasoning-12",
+   "tag": "reasoning",
+   "prompt": "A clock shows exactly 3:00. What is the angle between the hour hand and the minute hand, in degrees? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 90
+   }
+  },
+  {
+   "id": "reasoning-13",
+   "tag": "reasoning",
+   "prompt": "What number comes next: 2, 4, 8, 16, ? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 32
+   }
+  },
+  {
+   "id": "reasoning-14",
+   "tag": "reasoning",
+   "prompt": "I am facing north. I turn right, then turn right again. Which direction am I facing now? Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "South"
+   }
+  },
+  {
+   "id": "reasoning-15",
+   "tag": "reasoning",
+   "prompt": "There are 12 eggs. I use 5 for a cake and 3 for breakfast. How many eggs are left? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 4
+   }
+  },
+  {
+   "id": "reasoning-16",
+   "tag": "reasoning",
+   "prompt": "If 5 machines take 5 minutes to make 5 widgets, how many minutes would 100 machines take to make 100 widgets? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 5
+   }
+  },
+  {
+   "id": "reasoning-17",
+   "tag": "reasoning",
+   "prompt": "Which number does not belong with the others: 2, 4, 6, 9, 10? Reply with only the number.",
+   "check": {
+    "type": "number",
+    "value": 9
+   }
+  },
+  {
+   "id": "reasoning-18",
+   "tag": "reasoning",
+   "prompt": "Which day comes two days before Monday? Reply with one word.",
+   "check": {
+    "type": "equals",
+    "value": "Saturday"
+   }
   }
  ],
  "models": [
@@ -485,676 +1004,2044 @@
    {
     "id": "extract-1",
     "answer": "\u00a31,482.50\n",
-    "seconds": 2.31,
+    "seconds": 2.19,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 58,
+    "tokens_out": 11,
+    "tokens_estimated": false
    },
    {
     "id": "extract-2",
     "answer": "anna.berg@northwind.example\n",
     "seconds": 0.3,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 45,
+    "tokens_out": 10,
+    "tokens_estimated": false
    },
    {
     "id": "extract-3",
     "answer": "The new day and time is **Thursday 5 June at 14:30**. \n",
-    "seconds": 0.55,
+    "seconds": 0.57,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 22,
+    "tokens_estimated": false
    },
    {
     "id": "extract-4",
     "answer": "11\n",
-    "seconds": 0.17,
+    "seconds": 0.18,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 46,
+    "tokens_out": 4,
+    "tokens_estimated": false
    },
    {
     "id": "extract-5",
     "answer": "Heathrow",
     "seconds": 0.15,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 51,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "extract-6",
     "answer": "Lisinopril, metformin",
     "seconds": 0.23,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 42,
+    "tokens_out": 7,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-1",
     "answer": "391\n",
     "seconds": 0.19,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 5,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-2",
     "answer": "10:55\n",
-    "seconds": 0.23,
+    "seconds": 0.24,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 51,
+    "tokens_out": 7,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-3",
     "answer": "52.00\n",
-    "seconds": 0.23,
+    "seconds": 0.24,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 52,
+    "tokens_out": 7,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-4",
     "answer": "28.50\n",
     "seconds": 0.23,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 7,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-5",
     "answer": "2100\n",
     "seconds": 0.21,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 6,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-6",
     "answer": "600\n",
     "seconds": 0.19,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 44,
+    "tokens_out": 5,
+    "tokens_estimated": false
    },
    {
     "id": "format-1",
     "answer": "```json\n{\n  \"name\": \"Maria\",\n  \"age\": 34\n}\n```\n",
-    "seconds": 0.64,
+    "seconds": 0.65,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 26,
+    "tokens_estimated": false
    },
    {
     "id": "format-2",
     "answer": "NO",
     "seconds": 0.12,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 25,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "format-3",
     "answer": "07/03/2026\n",
     "seconds": 0.34,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 12,
+    "tokens_estimated": false
    },
    {
     "id": "format-4",
     "answer": "```json\n[\n  \"blue\",\n  \"green\",\n  \"red\"\n]\n```\n",
-    "seconds": 0.61,
+    "seconds": 0.62,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 25,
+    "tokens_estimated": false
    },
    {
     "id": "format-5",
     "answer": "What city do you currently live in?",
-    "seconds": 0.27,
+    "seconds": 0.28,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 9,
+    "tokens_estimated": false
    },
    {
     "id": "format-6",
     "answer": "The Lord Of The Rings",
     "seconds": 0.21,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 6,
+    "tokens_estimated": false
    },
    {
     "id": "classify-1",
     "answer": "Negative",
     "seconds": 0.12,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "classify-2",
     "answer": "Positive",
     "seconds": 0.12,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "classify-3",
     "answer": "Shipping\n",
     "seconds": 0.15,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "classify-4",
     "answer": "Billing\n",
     "seconds": 0.15,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "classify-5",
     "answer": "Technical\n",
-    "seconds": 0.14,
+    "seconds": 0.15,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "classify-6",
     "answer": "spam\n",
-    "seconds": 0.14,
+    "seconds": 0.15,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 40,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "rules-1",
     "answer": "- Tea is a beverage made by infusing dried leaves of the Camellia sinensis plant.\n- It\u2019s one of the most popular drinks worldwide, enjoyed for its flavor and cultural significance.\n- Different types of tea, like black, green, and white, vary in processing and flavor profiles.",
-    "seconds": 1.42,
+    "seconds": 1.45,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 63,
+    "tokens_estimated": false
    },
    {
     "id": "rules-2",
     "answer": "Rain falls, washing the world clean.",
-    "seconds": 0.27,
+    "seconds": 0.28,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 9,
+    "tokens_estimated": false
    },
    {
     "id": "rules-3",
     "answer": "HELLO! \n\nGOODBYE! \ud83d\ude0a",
-    "seconds": 0.29,
+    "seconds": 0.3,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 21,
+    "tokens_out": 10,
+    "tokens_estimated": false
    },
    {
     "id": "rules-4",
     "answer": "Apple\nBanana\nOrange\nStrawberry\nGrape",
-    "seconds": 0.31,
+    "seconds": 0.32,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 11,
+    "tokens_estimated": false
    },
    {
     "id": "rules-5",
     "answer": "A vast, salty ocean rolls, a constant, liquid sway.",
     "seconds": 0.38,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 14,
+    "tokens_estimated": false
    },
    {
     "id": "rules-6",
     "answer": "**Azul** \n\n\u201cAzul\u201d means blue. \ud83d\ude0a \n",
-    "seconds": 0.44,
+    "seconds": 0.45,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 23,
+    "tokens_out": 17,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-1",
     "answer": "Lee",
     "seconds": 0.12,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 32,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-2",
     "answer": "Yes\n",
-    "seconds": 0.14,
+    "seconds": 0.15,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 42,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-3",
     "answer": "50\n",
     "seconds": 0.17,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 50,
+    "tokens_out": 4,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-4",
     "answer": "Saturday",
     "seconds": 0.12,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 34,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-5",
     "answer": "2\n",
     "seconds": 0.15,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 50,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-6",
     "answer": "same\n",
-    "seconds": 0.14,
+    "seconds": 0.15,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "extract-7",
     "answer": "Q2",
     "seconds": 0.15,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 76,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "extract-8",
     "answer": "Here's the breakdown based on the meeting notes:\n\n*   **Who owns the budget review?** Priya\n*   **When is it due?** Wednesday",
-    "seconds": 0.83,
+    "seconds": 0.85,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 52,
+    "tokens_out": 35,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-7",
     "answer": "Let $V(t)$ be the volume of water in the tank at time $t$ minutes.\nThe tank fills at a rate of 12 litres per minute and drains at a rate of 5 litres per minute.\nThe net rate of filling is $12 - 5 = 7$ litres per minute.\nThe tank has a capacity of 480 litres.\nThe volume of water in the tank at time $t$ is given by $V(t) = (12 - 5)t = 7t$.\nWe want to find the time $t$ when the tank is full, i.e., $V(t) = 480$.\nSo, $7t = 480$.\n$t = \\frac{480}{7} \\approx 68.57142857$ minutes.\nRounding to two decimal places, we have $t \\approx 68.57$ minutes.\n\nFinal Answer: The final answer is $\\boxed{68.57}$",
-    "seconds": 4.98,
+    "seconds": 5.1,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 60,
+    "tokens_out": 229,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-8",
     "answer": "18\n",
     "seconds": 0.17,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 45,
+    "tokens_out": 4,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-9",
     "answer": "147.5\n",
     "seconds": 0.23,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 7,
+    "tokens_estimated": false
    },
    {
     "id": "format-7",
     "answer": "```json\n{\n  \"items\": [3, 12, 1],\n  \"total\": 16\n}\n```\n",
-    "seconds": 0.79,
+    "seconds": 0.81,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 52,
+    "tokens_out": 33,
+    "tokens_estimated": false
    },
    {
     "id": "rules-7",
     "answer": "Crimson leaves fall gracefully, painting landscapes with autumnal beauty.",
     "seconds": 0.36,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 13,
+    "tokens_estimated": false
    },
    {
     "id": "rules-8",
     "answer": "UNITED STATES\nFRANCE\nJAPAN\n",
-    "seconds": 0.29,
+    "seconds": 0.3,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 10,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-7",
     "answer": "Cara \n",
     "seconds": 0.17,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 52,
+    "tokens_out": 4,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-8",
     "answer": "9",
-    "seconds": 0.12,
+    "seconds": 0.13,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-9",
     "answer": "10\n",
     "seconds": 0.17,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 4,
+    "tokens_estimated": false
    },
    {
     "id": "classify-7",
     "answer": "Negative",
+    "seconds": 0.13,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-9",
+    "answer": "\u00a32.80\n",
+    "seconds": 0.24,
+    "ok": true,
+    "error": null,
+    "tokens_in": 48,
+    "tokens_out": 7,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-10",
+    "answer": "ZX-4471-KP\n",
+    "seconds": 0.3,
+    "ok": true,
+    "error": null,
+    "tokens_in": 49,
+    "tokens_out": 10,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-11",
+    "answer": "60\n",
+    "seconds": 0.17,
+    "ok": true,
+    "error": null,
+    "tokens_in": 41,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-12",
+    "answer": "Chen",
+    "seconds": 0.13,
+    "ok": true,
+    "error": null,
+    "tokens_in": 43,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-13",
+    "answer": "db-eu-2\n",
+    "seconds": 0.24,
+    "ok": true,
+    "error": null,
+    "tokens_in": 50,
+    "tokens_out": 7,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-14",
+    "answer": "180",
+    "seconds": 0.17,
+    "ok": true,
+    "error": null,
+    "tokens_in": 41,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-15",
+    "answer": "Saturday",
     "seconds": 0.12,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-16",
+    "answer": "14\n",
+    "seconds": 0.17,
+    "ok": true,
+    "error": null,
+    "tokens_in": 45,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-17",
+    "answer": "EUR\n",
+    "seconds": 0.15,
+    "ok": true,
+    "error": null,
+    "tokens_in": 43,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-10",
+    "answer": "20\n",
+    "seconds": 0.17,
+    "ok": false,
+    "error": null,
+    "tokens_in": 32,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-11",
+    "answer": "150\n",
+    "seconds": 0.19,
+    "ok": true,
+    "error": null,
+    "tokens_in": 40,
+    "tokens_out": 5,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-12",
+    "answer": "220\n",
+    "seconds": 0.19,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 5,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-13",
+    "answer": "112.50\n",
+    "seconds": 0.26,
+    "ok": true,
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 8,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-14",
+    "answer": "2000",
+    "seconds": 0.19,
+    "ok": true,
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 5,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-15",
+    "answer": "38\n",
+    "seconds": 0.17,
+    "ok": true,
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-16",
+    "answer": "6.50\n",
+    "seconds": 0.21,
+    "ok": false,
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 6,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-17",
+    "answer": "1024\n",
+    "seconds": 0.21,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 6,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-18",
+    "answer": "28\n",
+    "seconds": 0.17,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-8",
+    "answer": "```json\n[2, 3, 5]\n```\n",
+    "seconds": 0.43,
+    "ok": true,
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 16,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-9",
+    "answer": "```json\n{\n  \"colors\": [\"red\", \"blue\"]\n}\n```\n",
+    "seconds": 0.54,
+    "ok": true,
+    "error": null,
+    "tokens_in": 47,
+    "tokens_out": 21,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-10",
+    "answer": "HELLO WORLD\n",
+    "seconds": 0.17,
+    "ok": true,
+    "error": null,
+    "tokens_in": 25,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-11",
+    "answer": "meerts\n",
+    "seconds": 0.17,
+    "ok": false,
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-12",
+    "answer": "1,234,567\n",
+    "seconds": 0.32,
+    "ok": true,
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 11,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-13",
+    "answer": "```json\n{\n  \"city\": \"Lyon\",\n  \"country\": \"France\"\n}\n```\n",
+    "seconds": 0.65,
+    "ok": true,
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 26,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-14",
+    "answer": "PNG",
+    "seconds": 0.13,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-15",
+    "answer": "```json\n[3, 7, 19, 42]\n```\n",
+    "seconds": 0.54,
+    "ok": true,
+    "error": null,
+    "tokens_in": 41,
+    "tokens_out": 21,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-16",
+    "answer": "FALSE\n",
+    "seconds": 0.15,
+    "ok": true,
+    "error": null,
+    "tokens_in": 25,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-8",
+    "answer": "Positive",
+    "seconds": 0.12,
+    "ok": true,
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-9",
+    "answer": "Negative",
+    "seconds": 0.13,
+    "ok": true,
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-10",
+    "answer": "Technical\n",
+    "seconds": 0.15,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-11",
+    "answer": "Billing",
+    "seconds": 0.13,
+    "ok": true,
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-12",
+    "answer": "Shipping\n",
+    "seconds": 0.15,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-13",
+    "answer": "not spam\n",
+    "seconds": 0.17,
+    "ok": true,
+    "error": null,
+    "tokens_in": 43,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-14",
+    "answer": "French",
+    "seconds": 0.13,
+    "ok": true,
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-15",
+    "answer": "urgent\n",
+    "seconds": 0.15,
+    "ok": true,
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-16",
+    "answer": "Statement",
+    "seconds": 0.12,
+    "ok": true,
+    "error": null,
+    "tokens_in": 31,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-9",
+    "answer": "- Cats are known for their independent and often aloof personalities.\n- They are skilled hunters and have retractable claws for capturing prey.",
+    "seconds": 0.67,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 27,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-10",
+    "answer": "Warm bread, a simple comfort.",
+    "seconds": 0.26,
+    "ok": true,
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 8,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-11",
+    "answer": "good morning! \ud83d\ude0a \n",
+    "seconds": 0.23,
+    "ok": true,
+    "error": null,
+    "tokens_in": 20,
+    "tokens_out": 7,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-12",
+    "answer": "Red\nBlue\nGreen\nYellow",
+    "seconds": 0.25,
+    "ok": true,
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 8,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-13",
+    "answer": "The silver orb hangs in the night sky, silent.",
+    "seconds": 0.34,
+    "ok": false,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 12,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-14",
+    "answer": "Cold",
+    "seconds": 0.12,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-15",
+    "answer": "Snow, cold, silence, stillness, beauty.",
+    "seconds": 0.32,
+    "ok": true,
+    "error": null,
+    "tokens_in": 24,
+    "tokens_out": 11,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-16",
+    "answer": "Certainly, today is Tuesday.",
+    "seconds": 0.23,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 7,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-17",
+    "answer": "The vibrant colors of the sunrise painted the sky with breathtaking beauty!",
+    "seconds": 0.39,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 14,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-10",
+    "answer": "Mia",
+    "seconds": 0.12,
+    "ok": true,
+    "error": null,
+    "tokens_in": 32,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-11",
+    "answer": "Yes\n",
+    "seconds": 0.15,
+    "ok": true,
+    "error": null,
+    "tokens_in": 32,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-12",
+    "answer": "90\n",
+    "seconds": 0.17,
+    "ok": true,
+    "error": null,
+    "tokens_in": 42,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-13",
+    "answer": "32",
+    "seconds": 0.15,
+    "ok": true,
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-14",
+    "answer": "West",
+    "seconds": 0.13,
+    "ok": false,
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-15",
+    "answer": "4\n",
+    "seconds": 0.15,
+    "ok": true,
+    "error": null,
+    "tokens_in": 42,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-16",
+    "answer": "5\n",
+    "seconds": 0.15,
+    "ok": true,
+    "error": null,
+    "tokens_in": 48,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-17",
+    "answer": "9",
+    "seconds": 0.13,
+    "ok": true,
+    "error": null,
+    "tokens_in": 41,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-18",
+    "answer": "Saturday",
+    "seconds": 0.13,
+    "ok": true,
+    "error": null,
+    "tokens_in": 23,
+    "tokens_out": 2,
+    "tokens_estimated": false
    }
   ],
   "ollama:gemma3:12b": [
    {
     "id": "extract-1",
     "answer": "\u00a31,482.50",
-    "seconds": 4.02,
+    "seconds": 4.82,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 58,
+    "tokens_out": 10,
+    "tokens_estimated": false
    },
    {
     "id": "extract-2",
     "answer": "anna.berg@northwind.example\n",
-    "seconds": 0.89,
+    "seconds": 0.91,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 45,
+    "tokens_out": 10,
+    "tokens_estimated": false
    },
    {
     "id": "extract-3",
     "answer": "The new day and time is **Thursday 5 June at 14:30**.\n",
-    "seconds": 1.55,
+    "seconds": 1.61,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 21,
+    "tokens_estimated": false
    },
    {
     "id": "extract-4",
     "answer": "5",
     "seconds": 0.39,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 46,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "extract-5",
     "answer": "Heathrow",
-    "seconds": 0.45,
+    "seconds": 0.46,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 51,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "extract-6",
     "answer": "lisinopril, metformin\n",
-    "seconds": 0.75,
+    "seconds": 0.77,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 42,
+    "tokens_out": 8,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-1",
     "answer": "391",
-    "seconds": 0.5,
+    "seconds": 0.51,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 4,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-2",
     "answer": "11:15",
     "seconds": 0.64,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 51,
+    "tokens_out": 6,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-3",
     "answer": "36",
-    "seconds": 0.45,
+    "seconds": 0.46,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 52,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-4",
     "answer": "31.50",
-    "seconds": 0.62,
+    "seconds": 0.64,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 6,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-5",
     "answer": "12600",
-    "seconds": 0.62,
+    "seconds": 0.64,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 6,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-6",
     "answer": "750",
-    "seconds": 0.5,
+    "seconds": 0.51,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 44,
+    "tokens_out": 4,
+    "tokens_estimated": false
    },
    {
     "id": "format-1",
     "answer": "```json\n{\n  \"name\": \"Maria\",\n  \"age\": 34\n}\n```\n",
-    "seconds": 1.83,
+    "seconds": 1.91,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 26,
+    "tokens_estimated": false
    },
    {
     "id": "format-2",
     "answer": "NO",
     "seconds": 0.38,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 25,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "format-3",
     "answer": "07/03/2026",
-    "seconds": 0.92,
+    "seconds": 0.96,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 11,
+    "tokens_estimated": false
    },
    {
     "id": "format-4",
     "answer": "[\"blue\", \"green\", \"red\"]",
-    "seconds": 0.86,
+    "seconds": 0.89,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 10,
+    "tokens_estimated": false
    },
    {
     "id": "format-5",
     "answer": "What city do you live in?",
-    "seconds": 0.74,
+    "seconds": 0.76,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 8,
+    "tokens_estimated": false
    },
    {
     "id": "format-6",
     "answer": "The Lord of the Rings",
-    "seconds": 0.61,
+    "seconds": 0.64,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 6,
+    "tokens_estimated": false
    },
    {
     "id": "classify-1",
     "answer": "Negative",
     "seconds": 0.38,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "classify-2",
     "answer": "Positive",
     "seconds": 0.38,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "classify-3",
     "answer": "Shipping",
-    "seconds": 0.38,
+    "seconds": 0.39,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "classify-4",
     "answer": "Billing",
-    "seconds": 0.38,
+    "seconds": 0.39,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "classify-5",
     "answer": "Technical\n",
-    "seconds": 0.44,
+    "seconds": 0.45,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "classify-6",
     "answer": "spam",
-    "seconds": 0.38,
+    "seconds": 0.39,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 40,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "rules-1",
     "answer": "- Tea is the second most consumed beverage globally, after water.\n- Different tea types (black, green, white, oolong, pu-erh) are derived from the same plant, *Camellia sinensis*, and processed differently.\n- Tea originated in China thousands of years ago, with evidence suggesting consumption as early as the 3rd century BC.",
-    "seconds": 4.83,
+    "seconds": 5.05,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 76,
+    "tokens_estimated": false
    },
    {
     "id": "rules-2",
     "answer": "Cool rain gently falls on thirsty ground. \n",
-    "seconds": 0.93,
+    "seconds": 0.97,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 11,
+    "tokens_estimated": false
    },
    {
     "id": "rules-3",
     "answer": "HELLO!\n\nGOODBYE!",
-    "seconds": 0.74,
+    "seconds": 0.77,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 21,
+    "tokens_out": 8,
+    "tokens_estimated": false
    },
    {
     "id": "rules-4",
     "answer": "Apple\nBanana\nOrange\nGrape\nStrawberry",
-    "seconds": 0.91,
+    "seconds": 0.95,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 11,
+    "tokens_estimated": false
    },
    {
     "id": "rules-5",
     "answer": "A vast, salty gulf holds ships and coral. \n\n\n\n",
-    "seconds": 1.04,
+    "seconds": 1.08,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 13,
+    "tokens_estimated": false
    },
    {
     "id": "rules-6",
     "answer": "**Azul**\n\n\n\n\"Azul\" means blue.",
-    "seconds": 1.04,
+    "seconds": 1.09,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 23,
+    "tokens_out": 13,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-1",
     "answer": "Lee",
     "seconds": 0.38,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 32,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-2",
     "answer": "Yes\n",
-    "seconds": 0.44,
+    "seconds": 0.45,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 42,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-3",
     "answer": "5",
-    "seconds": 0.38,
+    "seconds": 0.4,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 50,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-4",
     "answer": "Saturday",
-    "seconds": 0.38,
+    "seconds": 0.39,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 34,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-5",
     "answer": "3",
-    "seconds": 0.38,
+    "seconds": 0.39,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 50,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-6",
     "answer": "Same\n",
-    "seconds": 0.44,
+    "seconds": 0.45,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "extract-7",
     "answer": "Q2",
-    "seconds": 0.46,
+    "seconds": 0.47,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 76,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "extract-8",
     "answer": "According to the notes, **Priya owns the budget review**, and it's **due Wednesday**.",
-    "seconds": 1.6,
+    "seconds": 1.66,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 52,
+    "tokens_out": 22,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-7",
     "answer": "40.00",
-    "seconds": 0.64,
+    "seconds": 0.65,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 60,
+    "tokens_out": 6,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-8",
     "answer": "18",
-    "seconds": 0.45,
+    "seconds": 0.46,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 45,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "arithmetic-9",
     "answer": "66",
-    "seconds": 0.46,
+    "seconds": 0.45,
     "ok": false,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "format-7",
     "answer": "```json\n{\n  \"items\": [3, 12, 1],\n  \"total\": 16\n}\n```",
-    "seconds": 2.22,
+    "seconds": 2.28,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 52,
+    "tokens_out": 32,
+    "tokens_estimated": false
    },
    {
     "id": "rules-7",
     "answer": "Crisp leaves swirl, painting landscapes gold as autumn breezes blow.",
-    "seconds": 1.11,
+    "seconds": 1.14,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 14,
+    "tokens_estimated": false
    },
    {
     "id": "rules-8",
     "answer": "FRANCE\nJAPAN\nBRAZIL",
-    "seconds": 0.86,
+    "seconds": 0.89,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 10,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-7",
     "answer": "Alice",
-    "seconds": 0.38,
+    "seconds": 0.39,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 52,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-8",
     "answer": "9",
-    "seconds": 0.38,
+    "seconds": 0.39,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 2,
+    "tokens_estimated": false
    },
    {
     "id": "reasoning-9",
     "answer": "10",
-    "seconds": 0.44,
+    "seconds": 0.45,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 3,
+    "tokens_estimated": false
    },
    {
     "id": "classify-7",
     "answer": "Negative.",
     "seconds": 0.45,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-9",
+    "answer": "\u00a32.80",
+    "seconds": 0.64,
+    "ok": true,
+    "error": null,
+    "tokens_in": 48,
+    "tokens_out": 6,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-10",
+    "answer": "ZX-4471-KP",
+    "seconds": 0.84,
+    "ok": true,
+    "error": null,
+    "tokens_in": 49,
+    "tokens_out": 9,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-11",
+    "answer": "60",
+    "seconds": 0.46,
+    "ok": true,
+    "error": null,
+    "tokens_in": 41,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-12",
+    "answer": "Chen",
+    "seconds": 0.4,
+    "ok": true,
+    "error": null,
+    "tokens_in": 43,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-13",
+    "answer": "db-eu-2\n",
+    "seconds": 0.71,
+    "ok": true,
+    "error": null,
+    "tokens_in": 50,
+    "tokens_out": 7,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-14",
+    "answer": "356",
+    "seconds": 0.52,
+    "ok": false,
+    "error": null,
+    "tokens_in": 41,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-15",
+    "answer": "Saturday",
+    "seconds": 0.39,
+    "ok": true,
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-16",
+    "answer": "14",
+    "seconds": 0.45,
+    "ok": true,
+    "error": null,
+    "tokens_in": 45,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "extract-17",
+    "answer": "EUR\n",
+    "seconds": 0.46,
+    "ok": true,
+    "error": null,
+    "tokens_in": 43,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-10",
+    "answer": "19",
+    "seconds": 0.45,
+    "ok": true,
+    "error": null,
+    "tokens_in": 32,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-11",
+    "answer": "150",
+    "seconds": 0.52,
+    "ok": true,
+    "error": null,
+    "tokens_in": 40,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-12",
+    "answer": "220",
+    "seconds": 0.51,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-13",
+    "answer": "112.5",
+    "seconds": 0.64,
+    "ok": true,
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 6,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-14",
+    "answer": "2000",
+    "seconds": 0.57,
+    "ok": true,
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 5,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-15",
+    "answer": "38",
+    "seconds": 0.45,
+    "ok": true,
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-16",
+    "answer": "12",
+    "seconds": 0.45,
+    "ok": true,
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-17",
+    "answer": "1024",
+    "seconds": 0.58,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 5,
+    "tokens_estimated": false
+   },
+   {
+    "id": "arithmetic-18",
+    "answer": "28",
+    "seconds": 0.45,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-8",
+    "answer": "```json\n[2, 3, 5]\n```",
+    "seconds": 1.2,
+    "ok": true,
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 15,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-9",
+    "answer": "```json\n{\n  \"colors\": [\"red\", \"blue\"]\n}\n```",
+    "seconds": 1.53,
+    "ok": true,
+    "error": null,
+    "tokens_in": 47,
+    "tokens_out": 20,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-10",
+    "answer": "HELLO WORLD",
+    "seconds": 0.45,
+    "ok": true,
+    "error": null,
+    "tokens_in": 25,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-11",
+    "answer": "maerts",
+    "seconds": 0.46,
+    "ok": true,
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-12",
+    "answer": "1,234,567",
+    "seconds": 0.89,
+    "ok": true,
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 10,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-13",
+    "answer": "```json\n{\n  \"city\": \"Lyon\",\n  \"country\": \"France\"\n}\n```\n",
+    "seconds": 1.95,
+    "ok": true,
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 26,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-14",
+    "answer": "PNG",
+    "seconds": 0.44,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-15",
+    "answer": "```json\n[3, 7, 19, 42]\n```",
+    "seconds": 1.51,
+    "ok": true,
+    "error": null,
+    "tokens_in": 41,
+    "tokens_out": 20,
+    "tokens_estimated": false
+   },
+   {
+    "id": "format-16",
+    "answer": "FALSE\n",
+    "seconds": 0.44,
+    "ok": true,
+    "error": null,
+    "tokens_in": 25,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-8",
+    "answer": "Positive",
+    "seconds": 0.38,
+    "ok": true,
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-9",
+    "answer": "Negative",
+    "seconds": 0.38,
+    "ok": true,
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-10",
+    "answer": "Technical",
+    "seconds": 0.39,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-11",
+    "answer": "Billing",
+    "seconds": 0.38,
+    "ok": true,
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-12",
+    "answer": "Shipping",
+    "seconds": 0.39,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-13",
+    "answer": "not spam\n",
+    "seconds": 0.51,
+    "ok": true,
+    "error": null,
+    "tokens_in": 43,
+    "tokens_out": 4,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-14",
+    "answer": "French",
+    "seconds": 0.39,
+    "ok": true,
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-15",
+    "answer": "urgent",
+    "seconds": 0.38,
+    "ok": true,
+    "error": null,
+    "tokens_in": 38,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "classify-16",
+    "answer": "Statement",
+    "seconds": 0.38,
+    "ok": true,
+    "error": null,
+    "tokens_in": 31,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-9",
+    "answer": "- Cats can make over 100 different vocalizations, while dogs make around 10.\n- A cat's nose pad is ridged with a unique pattern, much like a human fingerprint.",
+    "seconds": 2.95,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 44,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-10",
+    "answer": "Warm, crusty bread is simply delicious. \n",
+    "seconds": 1.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 12,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-11",
+    "answer": "good morning. \n",
+    "seconds": 0.63,
+    "ok": true,
+    "error": null,
+    "tokens_in": 20,
+    "tokens_out": 6,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-12",
+    "answer": "Red\nBlue\nGreen\nYellow",
+    "seconds": 0.74,
+    "ok": true,
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 8,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-13",
+    "answer": "The lone sphere glows, offering cool light. \n\n\n\n",
+    "seconds": 0.99,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 12,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-14",
+    "answer": "Cold",
+    "seconds": 0.38,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-15",
+    "answer": "Cold, snow, cozy, peaceful, frosty.",
+    "seconds": 0.93,
+    "ok": true,
+    "error": null,
+    "tokens_in": 24,
+    "tokens_out": 11,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-16",
+    "answer": "Certainly, today is Tuesday.",
+    "seconds": 0.68,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 7,
+    "tokens_estimated": false
+   },
+   {
+    "id": "rules-17",
+    "answer": "The vibrant colors of the sunrise painted the sky with breathtaking beauty, a truly spectacular sight!",
+    "seconds": 1.44,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 19,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-10",
+    "answer": "Mia",
+    "seconds": 0.38,
+    "ok": true,
+    "error": null,
+    "tokens_in": 32,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-11",
+    "answer": "Yes.",
+    "seconds": 0.44,
+    "ok": true,
+    "error": null,
+    "tokens_in": 32,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-12",
+    "answer": "90",
+    "seconds": 0.45,
+    "ok": true,
+    "error": null,
+    "tokens_in": 42,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-13",
+    "answer": "32",
+    "seconds": 0.44,
+    "ok": true,
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-14",
+    "answer": "South\n",
+    "seconds": 0.44,
+    "ok": true,
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 3,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-15",
+    "answer": "4",
+    "seconds": 0.38,
+    "ok": true,
+    "error": null,
+    "tokens_in": 42,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-16",
+    "answer": "5",
+    "seconds": 0.39,
+    "ok": true,
+    "error": null,
+    "tokens_in": 48,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-17",
+    "answer": "9",
+    "seconds": 0.39,
+    "ok": true,
+    "error": null,
+    "tokens_in": 41,
+    "tokens_out": 2,
+    "tokens_estimated": false
+   },
+   {
+    "id": "reasoning-18",
+    "answer": "Friday",
+    "seconds": 0.38,
+    "ok": false,
+    "error": null,
+    "tokens_in": 23,
+    "tokens_out": 2,
+    "tokens_estimated": false
    }
   ],
   "claude:answered-blind": [
@@ -1163,336 +3050,1020 @@
     "answer": "\u00a31,482.50",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": true
    },
    {
     "id": "extract-2",
     "answer": "anna.berg@northwind.example",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 37,
+    "tokens_out": 7,
+    "tokens_estimated": true
    },
    {
     "id": "extract-3",
-    "answer": "Thursday 5 June at 14:30.",
+    "answer": "The new day and time is Thursday 5 June at 14:30.",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 24,
+    "tokens_out": 12,
+    "tokens_estimated": true
    },
    {
     "id": "extract-4",
     "answer": "5",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 31,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "extract-5",
     "answer": "Heathrow",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 34,
+    "tokens_out": 2,
+    "tokens_estimated": true
    },
    {
     "id": "extract-6",
     "answer": "lisinopril, metformin",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 5,
+    "tokens_estimated": true
    },
    {
     "id": "arithmetic-1",
     "answer": "391",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 11,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "arithmetic-2",
     "answer": "11:15",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 31,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "arithmetic-3",
     "answer": "36",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "arithmetic-4",
     "answer": "31.5",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "arithmetic-5",
     "answer": "12600",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 16,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "arithmetic-6",
     "answer": "750",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "format-1",
     "answer": "{\"name\": \"Maria\", \"age\": 34}",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 7,
+    "tokens_estimated": true
    },
    {
     "id": "format-2",
     "answer": "NO",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 12,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "format-3",
     "answer": "07/03/2026",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 17,
+    "tokens_out": 2,
+    "tokens_estimated": true
    },
    {
     "id": "format-4",
     "answer": "[\"blue\", \"green\", \"red\"]",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 24,
+    "tokens_out": 6,
+    "tokens_estimated": true
    },
    {
     "id": "format-5",
     "answer": "What city do you live in?",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 31,
+    "tokens_out": 6,
+    "tokens_estimated": true
    },
    {
     "id": "format-6",
     "answer": "The Lord of the Rings",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 18,
+    "tokens_out": 5,
+    "tokens_estimated": true
    },
    {
     "id": "classify-1",
     "answer": "Negative",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 2,
+    "tokens_estimated": true
    },
    {
     "id": "classify-2",
     "answer": "Positive",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 24,
+    "tokens_out": 2,
+    "tokens_estimated": true
    },
    {
     "id": "classify-3",
     "answer": "shipping",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 34,
+    "tokens_out": 2,
+    "tokens_estimated": true
    },
    {
     "id": "classify-4",
     "answer": "billing",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 2,
+    "tokens_estimated": true
    },
    {
     "id": "classify-5",
     "answer": "technical",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": true
    },
    {
     "id": "classify-6",
     "answer": "spam",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "rules-1",
-    "answer": "- Tea is brewed by steeping leaves in hot water.\n- It comes in many varieties, such as black, green, and herbal.\n- Many people enjoy it as a calming daily ritual.",
+    "answer": "- Tea is made by steeping leaves in hot water.\n- Green, black, and herbal teas offer different flavours.\n- Many people enjoy a cup of tea to relax.",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 37,
+    "tokens_estimated": true
    },
    {
     "id": "rules-2",
-    "answer": "Rain taps softly on the quiet roof.",
+    "answer": "Rain taps softly on the window.",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 13,
+    "tokens_out": 8,
+    "tokens_estimated": true
    },
    {
     "id": "rules-3",
-    "answer": "HELLO AND GOODBYE.",
+    "answer": "HELLO AND GOODBYE!",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 13,
+    "tokens_out": 4,
+    "tokens_estimated": true
    },
    {
     "id": "rules-4",
-    "answer": "Apple\nBanana\nOrange\nPear\nGrape",
+    "answer": "Apple\nBanana\nOrange\nGrape\nMango",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 17,
+    "tokens_out": 8,
+    "tokens_estimated": true
    },
    {
     "id": "rules-5",
-    "answer": "Salty swirls roll by a sandy, rocky coast.",
+    "answer": "Salt spray falls upon a calm, vast shoal.",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 20,
+    "tokens_out": 10,
+    "tokens_estimated": true
    },
    {
     "id": "rules-6",
     "answer": "Azul",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 14,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "reasoning-1",
     "answer": "Lee",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "reasoning-2",
     "answer": "yes",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 25,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "reasoning-3",
     "answer": "5",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "reasoning-4",
     "answer": "Saturday",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 2,
+    "tokens_estimated": true
    },
    {
     "id": "reasoning-5",
     "answer": "3",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 34,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "reasoning-6",
     "answer": "same",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "extract-7",
     "answer": "Q2",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 50,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "extract-8",
     "answer": "Priya owns the budget review, and it is due Wednesday.",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 44,
+    "tokens_out": 14,
+    "tokens_estimated": true
    },
    {
     "id": "arithmetic-7",
     "answer": "68.57",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 51,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "arithmetic-8",
     "answer": "20",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "arithmetic-9",
     "answer": "64",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 16,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "format-7",
     "answer": "{\"items\": [3, 12, 1], \"total\": 16}",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 8,
+    "tokens_estimated": true
    },
    {
     "id": "rules-7",
-    "answer": "Golden leaves drift down while cool winds whisper through trees.",
+    "answer": "Golden leaves drift down while cool winds whisper through forests.",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 20,
+    "tokens_out": 16,
+    "tokens_estimated": true
    },
    {
     "id": "rules-8",
     "answer": "FRANCE\nJAPAN\nBRAZIL",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 23,
+    "tokens_out": 5,
+    "tokens_estimated": true
    },
    {
     "id": "reasoning-7",
     "answer": "Alice",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "reasoning-8",
     "answer": "9",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "reasoning-9",
     "answer": "10",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 31,
+    "tokens_out": 1,
+    "tokens_estimated": true
    },
    {
     "id": "classify-7",
     "answer": "Negative",
     "seconds": 0.0,
     "ok": true,
-    "error": null
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "extract-9",
+    "answer": "\u00a32.80",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "extract-10",
+    "answer": "ZX-4471-KP",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "extract-11",
+    "answer": "60",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "extract-12",
+    "answer": "Chen",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 31,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "extract-13",
+    "answer": "db-eu-2",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "extract-14",
+    "answer": "180",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "extract-15",
+    "answer": "Saturday",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 20,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "extract-16",
+    "answer": "14",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "extract-17",
+    "answer": "EUR",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 24,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "arithmetic-10",
+    "answer": "19",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 16,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "arithmetic-11",
+    "answer": "150",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "arithmetic-12",
+    "answer": "220",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 12,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "arithmetic-13",
+    "answer": "112.5",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 26,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "arithmetic-14",
+    "answer": "2000",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 12,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "arithmetic-15",
+    "answer": "38",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "arithmetic-16",
+    "answer": "12",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 20,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "arithmetic-17",
+    "answer": "1024",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 14,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "arithmetic-18",
+    "answer": "28",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 23,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "format-8",
+    "answer": "[2, 3, 5]",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 19,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "format-9",
+    "answer": "{\"colors\": [\"red\", \"blue\"]}",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 39,
+    "tokens_out": 7,
+    "tokens_estimated": true
+   },
+   {
+    "id": "format-10",
+    "answer": "HELLO WORLD",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 16,
+    "tokens_out": 3,
+    "tokens_estimated": true
+   },
+   {
+    "id": "format-11",
+    "answer": "maerts",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 14,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "format-12",
+    "answer": "1,234,567",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "format-13",
+    "answer": "{\"city\": \"Lyon\", \"country\": \"France\"}",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 25,
+    "tokens_out": 9,
+    "tokens_estimated": true
+   },
+   {
+    "id": "format-14",
+    "answer": "PNG",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 36,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "format-15",
+    "answer": "[3, 7, 19, 42]",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 24,
+    "tokens_out": 4,
+    "tokens_estimated": true
+   },
+   {
+    "id": "format-16",
+    "answer": "FALSE",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 14,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "classify-8",
+    "answer": "Positive",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "classify-9",
+    "answer": "Negative",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "classify-10",
+    "answer": "technical",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "classify-11",
+    "answer": "billing",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 33,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "classify-12",
+    "answer": "shipping",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 35,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "classify-13",
+    "answer": "not spam",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 30,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "classify-14",
+    "answer": "French",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 25,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "classify-15",
+    "answer": "urgent",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 34,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "classify-16",
+    "answer": "Statement",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 23,
+    "tokens_out": 2,
+    "tokens_estimated": true
+   },
+   {
+    "id": "rules-9",
+    "answer": "- Cats are curious and playful animals.\n- They spend much of the day sleeping.",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 21,
+    "tokens_out": 20,
+    "tokens_estimated": true
+   },
+   {
+    "id": "rules-10",
+    "answer": "Fresh bread smells wonderful.",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 13,
+    "tokens_out": 7,
+    "tokens_estimated": true
+   },
+   {
+    "id": "rules-11",
+    "answer": "good morning",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 12,
+    "tokens_out": 3,
+    "tokens_estimated": true
+   },
+   {
+    "id": "rules-12",
+    "answer": "Red\nBlue\nGreen\nYellow",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 17,
+    "tokens_out": 5,
+    "tokens_estimated": true
+   },
+   {
+    "id": "rules-13",
+    "answer": "The moon glows softly on the quiet hills.",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 20,
+    "tokens_out": 10,
+    "tokens_estimated": true
+   },
+   {
+    "id": "rules-14",
+    "answer": "Cold",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 18,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "rules-15",
+    "answer": "Snow blankets quiet, frozen fields.",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 16,
+    "tokens_out": 9,
+    "tokens_estimated": true
+   },
+   {
+    "id": "rules-16",
+    "answer": "Certainly, today is Tuesday.",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 20,
+    "tokens_out": 7,
+    "tokens_estimated": true
+   },
+   {
+    "id": "rules-17",
+    "answer": "The sunrise painted the sky gold!",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 8,
+    "tokens_estimated": true
+   },
+   {
+    "id": "reasoning-10",
+    "answer": "Mia",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 21,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "reasoning-11",
+    "answer": "yes",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 21,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "reasoning-12",
+    "answer": "90",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 32,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "reasoning-13",
+    "answer": "32",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 16,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "reasoning-14",
+    "answer": "South",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 27,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "reasoning-15",
+    "answer": "4",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 28,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "reasoning-16",
+    "answer": "5",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 34,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "reasoning-17",
+    "answer": "9",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 22,
+    "tokens_out": 1,
+    "tokens_estimated": true
+   },
+   {
+    "id": "reasoning-18",
+    "answer": "Saturday",
+    "seconds": 0.0,
+    "ok": true,
+    "error": null,
+    "tokens_in": 15,
+    "tokens_out": 2,
+    "tokens_estimated": true
    }
   ]
  }

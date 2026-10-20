@@ -16,6 +16,21 @@ def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
     return max(0.0, centre - half), min(1.0, centre + half)
 
 
+def parse_prices(items: list[str] | None) -> dict[str, tuple[float, float]]:
+    """'claude:sonnet=2,10' means $2 per million tokens in, $10 per million out."""
+    out = {}
+    for item in items or []:
+        name, _, rates = item.rpartition("=")
+        low, _, high = rates.partition(",")
+        out[name] = (float(low), float(high))
+    return out
+
+
+def cost_per_thousand(rows: list[dict], price: tuple[float, float]) -> float:
+    spent = sum(r.get("tokens_in", 0) * price[0] + r.get("tokens_out", 0) * price[1] for r in rows) / 1e6
+    return spent / len(rows) * 1000 if rows else 0.0
+
+
 def analyse(receipt: dict, reference: str | None = None) -> dict:
     models = receipt["models"]
     ref = reference or models[-1]
@@ -53,7 +68,11 @@ def pct(x: float) -> str:
     return f"{round(x * 100)}%"
 
 
-def render(receipt: dict, reference: str | None = None) -> str:
+def render(receipt: dict, reference: str | None = None, prices: dict | None = None) -> str:
+    prices = dict(prices or {})
+    for m in receipt["models"]:
+        if m.startswith("ollama:"):
+            prices.setdefault(m, (0.0, 0.0))  # runs on your own machine: no per-use charge
     a = analyse(receipt, reference)
     ref = a["reference"]
     out = ["# Versus report", ""]
@@ -61,13 +80,18 @@ def render(receipt: dict, reference: str | None = None) -> str:
                f"Every answer was checked by a fixed rule, never by another model. "
                f"**{ref}** is the one we compare against.")
     out += ["", "## Overall", "",
-            "| Model | Got right | Share | Plausible range | Typical time per answer |",
-            "|---|---|---|---|---|"]
+            "| Model | Got right | Share | Plausible range | Typical time per answer | Cost for 1,000 tasks |",
+            "|---|---|---|---|---|---|"]
     for m in receipt["models"]:
         s = a["summary"][m]
         out.append(f"| {m} | {s['passed']} of {s['total']} | {pct(s['passed'] / s['total'])} | "
-                   f"{pct(s['low'])} to {pct(s['high'])} | {(str(round(s['median_seconds'], 1)) + 's') if s['median_seconds'] else 'not measured'} |")
+                   f"{pct(s['low'])} to {pct(s['high'])} | {(str(round(s['median_seconds'], 1)) + 's') if s['median_seconds'] else 'not measured'} | "
+                   f"{('$%.2f' % cost_per_thousand(receipt['results'][m], prices[m])) if m in prices else 'no price given'} |")
     out += ["", "*Plausible range: with this few tasks, the true score could sit anywhere in it.*"]
+    if prices:
+        out.append("*Cost counts the words sent and received at the price you gave. Local models cost nothing per use, "
+                   "but the electricity and the laptop are yours. Token counts are exact for Ollama and a rough "
+                   "guess (4 characters a token) for answers brought in from elsewhere.*")
 
     for m, per_tag in a["versus"].items():
         out += ["", f"## {m} compared with {ref}", "",

@@ -28,14 +28,17 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("tasks")
     r.add_argument("--models", required=True, help="comma list, e.g. ollama:gemma3:4b,claude:sonnet (last is the reference)")
     r.add_argument("--out", required=True)
+    r.add_argument("--price", action="append", help="model=input,output dollars per million tokens, e.g. claude:sonnet=2,10")
     g = sub.add_parser("report", help="turn saved answers into a plain-English report")
     g.add_argument("receipt")
     g.add_argument("--reference")
+    g.add_argument("--price", action="append", help="model=input,output dollars per million tokens, e.g. claude:sonnet=2,10")
     g.add_argument("--rescore", action="store_true", help="re-apply the task checks to the saved answers first")
     a = sub.add_parser("add", help="add a model whose answers you collected yourself (a JSON file of id -> answer)")
     a.add_argument("receipt")
     a.add_argument("--name", required=True)
     a.add_argument("--answers", required=True)
+    a.add_argument("--price", action="append", help="model=input,output dollars per million tokens")
     sub.add_parser("demo", help="no model needed: two pretend models")
     args = p.parse_args(argv)
 
@@ -47,15 +50,15 @@ def main(argv: list[str] | None = None) -> int:
         receipt = runner.run(tasks, bs, progress=lambda m, i, ok: print(f"{m:24} {i:18} {'ok' if ok else 'MISS'}", file=sys.stderr))
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
         Path(args.out).write_text(json.dumps(receipt, indent=1))
-        print(report.render(receipt))
+        print(report.render(receipt, prices=report.parse_prices(args.price)))
         return 0
     receipt = json.loads(Path(args.receipt).read_text())
     if args.cmd == "add":
         runner.add_answers(receipt, args.name, json.loads(Path(args.answers).read_text()))
         Path(args.receipt).write_text(json.dumps(receipt, indent=1))
-        print(report.render(receipt))
+        print(report.render(receipt, prices=report.parse_prices(args.price)))
         return 0
     if args.rescore:
         receipt = runner.rescore(receipt)
-    print(report.render(receipt, args.reference))
+    print(report.render(receipt, args.reference, report.parse_prices(args.price)))
     return 0

@@ -11,7 +11,7 @@ demo:
 
 # needs Ollama running with the model pulled; Claude column uses the `claude` command
 run:
-	PYTHONPATH=src $(PY) -m versus run tasks/example.jsonl --models ollama:gemma3:4b,ollama:gemma3:12b,claude:sonnet --out receipts/example.json
+	PYTHONPATH=src $(PY) -m versus run tasks/example.jsonl --models ollama:gemma3:4b,ollama:gemma3:12b,claude:sonnet --out receipts/example.json --price claude:sonnet=2,10
 
 report:
 	PYTHONPATH=src $(PY) -m versus report receipts/example.json
