@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: test demo run report
+.PHONY: test demo run report hero
 
 test:
 	PYTHONPATH=src $(PY) -m unittest discover -s tests
@@ -15,3 +15,7 @@ run:
 
 report:
 	PYTHONPATH=src $(PY) -m versus report receipts/example.json
+
+# redraw docs/hero.svg from the saved run
+hero:
+	$(PY) scripts/make_hero.py receipts/gemma.json

@@ -1,6 +1,15 @@
 <h1 align="center">versus</h1>
 <p align="center">Which of your tasks can a free model on your laptop do, and which still need Claude?</p>
 
+<p align="center">
+  <a href="https://github.com/patkusch/versus/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/patkusch/versus/ci.yml?branch=main&style=for-the-badge&label=CI&labelColor=0b0f19"></a>
+  <img alt="Python 3.11+" src="https://img.shields.io/badge/python-3.11%2B-39d0c0?style=for-the-badge&labelColor=0b0f19">
+  <img alt="Zero dependencies" src="https://img.shields.io/badge/dependencies-zero-a78bfa?style=for-the-badge&labelColor=0b0f19">
+  <img alt="MIT" src="https://img.shields.io/badge/licence-MIT-ffb454?style=for-the-badge&labelColor=0b0f19">
+</p>
+
+<p align="center"><img src="docs/hero.svg" alt="Bars comparing a small free model, a bigger free model and Claude on six kinds of task. The small model drops to 50% on word problems; the bigger one stays close to Claude." width="100%"></p>
+
 **Run your own tasks on a local open model and on Claude, side by side.**
 **It tells you which kinds of task the cheap one handles, and where it lets you down.**
 
