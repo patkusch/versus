@@ -48,11 +48,11 @@ Write your tasks as one line each, with a rule that decides right or wrong:
 {"id": "extract-1", "tag": "extract", "prompt": "Invoice total? Only the amount.", "check": {"type": "contains", "values": ["1,482.50"]}}
 ```
 
-Rules available: `equals`, `any_of`, `contains`, `not_contains`, `regex`, `number`, `json`, `max_words`, `word_count`, `all_caps`, `all_lower`, `line_count`, `bullets`, and `all` (several rules at once). The tasks I used are in [`tasks/example.jsonl`](tasks/example.jsonl).
+Rules available: `equals`, `any_of`, `contains`, `not_contains`, `regex`, `number`, `json`, `max_words`, `word_count`, `all_caps`, `all_lower`, `line_count`, `bullets`, and `all` (several rules at once). The tasks I used are in [`tasks/example.jsonl`](tasks/example.jsonl), and [`tasks/README.md`](tasks/README.md) explains every rule. Run `python3 -m versus check your-tasks.jsonl` first to catch mistakes, and add `--tag arithmetic` to a run to try one kind at a time.
 
 ```bash
 make demo        # no model needed: two pretend models
-make test        # 22 tests
+make test        # 27 tests
 
 # real run: needs Ollama running with the models pulled
 PYTHONPATH=src python3 -m versus run tasks/example.jsonl \
