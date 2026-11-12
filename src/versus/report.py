@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import math
 import statistics
-from collections import defaultdict
 
 
 def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:

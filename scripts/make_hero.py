@@ -55,7 +55,7 @@ for i, m in enumerate(models):
 # chart
 base, top = 600, 330
 ch = base - top
-o.append(f'<text x="60" y="300" font-size="15" font-weight="600" fill="#8b93a7" letter-spacing="2">RIGHT ANSWERS BY KIND OF TASK</text>')
+o.append('<text x="60" y="300" font-size="15" font-weight="600" fill="#8b93a7" letter-spacing="2">RIGHT ANSWERS BY KIND OF TASK</text>')
 for pct in (0, 50, 100):
     y = base - ch * pct / 100
     o.append(f'<line x1="60" x2="1140" y1="{y}" y2="{y}" stroke="#ffffff" stroke-opacity="{.18 if pct==0 else .07}"/>')
