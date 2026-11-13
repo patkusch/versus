@@ -5,7 +5,7 @@ import json
 import sys
 from pathlib import Path
 
-from . import backends, report, runner
+from . import __version__, backends, report, runner
 
 
 def _demo() -> int:
@@ -23,6 +23,7 @@ def _demo() -> int:
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="versus", description=__doc__)
+    p.add_argument("--version", action="version", version=f"versus {__version__}")
     sub = p.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("run", help="ask every model every task and save the answers")
     r.add_argument("tasks")
