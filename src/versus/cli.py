@@ -76,6 +76,9 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     receipt = json.loads(Path(args.receipt).read_text())
     if args.cmd == "add":
+        if ":" not in args.name or args.name.endswith(":"):
+            print(f"versus: --name must look like ollama:<model> or claude:<model>, not '{args.name}'", file=sys.stderr)
+            return 2
         runner.add_answers(receipt, args.name, json.loads(Path(args.answers).read_text()))
         Path(args.receipt).write_text(json.dumps(receipt, indent=1))
         print(report.render(receipt, prices=report.parse_prices(args.price)))
