@@ -77,3 +77,7 @@ The full output of the run above is in [`receipts/REPORT.md`](receipts/REPORT.md
 - A real `claude:` column run through the command, once it can log in from the machine running the test.
 
 MIT licence.
+
+---
+
+[Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security policy](SECURITY.md)
