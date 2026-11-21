@@ -17,3 +17,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.urls]
+Homepage = "https://github.com/patkusch/versus"
+Repository = "https://github.com/patkusch/versus"
+Issues = "https://github.com/patkusch/versus/issues"
+Changelog = "https://github.com/patkusch/versus/blob/main/CHANGELOG.md"
