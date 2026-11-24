@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- `versus --version` prints the version.
+- `add --name` must look like `ollama:<model>` or `claude:<model>`. Before, another name saved the answers and then crashed.
+
 ## 0.1.0 (2026-10-20)
 
 - Run tasks on Ollama models and compare with Claude; answers marked by fixed rules.
